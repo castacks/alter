@@ -145,22 +145,26 @@
       <section class="hero teaser">
         <div class="container is-max-desktop">
           <div class="hero-body">
+            <h2 class="subtitle has-text-centered">
+              <span>Offroad driving depends on roboust long range perception. </span>
+            </h2>
               <div class="container is-max-desktop">
               <div class="columns is-centered">
             
               <div class="column has-text-centered">
                 <div class="content">
-                  <video id="s1_recon" autoplay controls muted loop playsinline height="100%">
+                  <img src="data/Intro_video.gif" alt="My GIF" />
+
+                  <!-- <video id="s1_recon" autoplay controls muted loop playsinline height="100%">
                     <source src="./data/splash.mp4"
                             type="video/mp4">
-                  </video>
+                  </video> -->
                 </div>
               </div>
-      
               </div>
               </div>
             <h2 class="subtitle has-text-centered">
-              <span>ALTER demonstrates</span>
+              <span>We present ALTER, an adaptive self-supervised framework for long range perception.</span>
             </h2>
           </div>
         </div>
@@ -175,7 +179,26 @@
               <h2 class="title is-3">Abstract</h2>
               <div class="content has-text-justified">
                 <p>
-                  To-Do
+                  Autonomous offroad driving is essential for applications like
+                   emergency rescue, military operations, and agriculture.
+                   Despite progress, systems struggle with high-speed vehicles 
+                   exceeding 10m/s due to the need  for accurate long-range (>
+                    50m) perception for safe navigation. Current approaches ar
+                    e limited by sensor constraints; LiDAR-based methods offer
+                     precise short-range data but are noisy beyond 30m, while 
+                     visual models provide dense long-range measurements but 
+                     falter with unseen scenarios. To overcome these issues, 
+                     we introduce ALTER, a learning-on-the-drive perception 
+                     framework that leverages both sensor types. ALTER uses a
+                      self-supervised visual model to learn from near-range 
+                      LiDAR measurements in real-time, improving long-range 
+                      prediction in new environments without manual labeling. 
+                      It also includes a model selection module for better sensor 
+                      failure response and adaptability to known environments.
+                       Testing in two real-world settings showed on average 43.4%
+                       better traversability prediction than LiDAR-only and 
+                       164% over non-adaptive state-of-the-art (SOTA) visual 
+                       semantic methods after 45 seconds of online learning.
                 </p>
               </div>
             </div>
@@ -209,32 +232,180 @@
         </div>
         </div>
       </section>
-      
+
+      <section class="hero is-small is-light">
+        <div class="hero-body">
+        <div class="columns is-centered">
+          <div class="column">
+            <h2 class="title is-3 has-text-centered">Individual Sensors are not sufficient for Long-Range Perception</h2>
+            <!-- put two images side by side Each image also has their individual subtitles -->
+            <div class="columns">
+              <div class="column">
+                  <figure class="image">
+                      <img src="data/lidar_sensor.png" alt="LiDAR sensor image shows sparse data at far range">
+                      <figcaption>LiDAR-based</figcaption>
+                    <ul class="list-no-bullets">
+                      <li class="pro">+ Robust to appearance changes</li>
+                      <li class="con">- Sparse measurement at far-range</li>
+                  </ul>
+                  </figure>
+              </div>
+              <div class="column">
+                  <figure class="image">
+                      <img src="data/camera-sensor.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
+                      <figcaption>Camera-based</figcaption>
+                      <ul class="list-no-bullets">
+                        <li class="pro">+ Dense measurement at far-range</li>
+                        <li class="con">- Fail when out of distribution</li>
+                    </ul>
+                  </figure>
+              </div>
+          </div>
+          
+          </div>
+        </div>
+        </div>
+        </div>
+      </section>
+
       <section class="hero is-small is-light">
         <div class="hero-body">
         <div class="columns is-centered has-text-centered">
           <div class="column">
-            <h2 class="title is-3">Example Result</h2>
+            <h2 class="title is-3">Method</h2>
             <p></p>
           </div>
         </div>
-      
+
         <div class="container is-max-desktop">
         <div class="columns is-centered">
       
         <div class="column has-text-centered">
           <div class="content">
-            <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
-              <source src="./data/result.mp4"
-                      type="video/mp4">
-            </video>
-            <!-- <img src = "data/viz_gifs/row3_col3.gif"> -->
+            <figure class="image">
+              <img src="data/combine_lidar_and_camera.png" alt="LiDAR sensor image shows sparse data at far range">
+              <figcaption>LiDAR-based</figcaption>
+          </figure>
+          </div>
+          <div class="columns">
+            <div class="column">
+              We combine the two types of sensor data using delayed projection.
+
+              Accumulation helps increase the number of label points for each image (providing far range data) and also increases the quality of point-cloud derived traversability values.
+            </div>
+            <div class="column">
+              <div class="content">
+                <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
+                  <source src="./data/accumulate_lidar.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <div class="content">
+              <figure class="image">
+                <img src="data/alter_approach_0314.png" alt="Alter approach figure">
+                <figcaption>
+                  Our adaptive approach estimates traversability from images using models trained online with new LiDAR
+                  data. Online Labeling: We accumulate LiDAR features to label their costs in 3D. These labels are projected onto the image plane to form
+                  training labels. Online Learning: ALTER picks the most similar model or makes a new model for training to adapt to new appearances.
+                  Online Inference: We pick the best inference model given image similarity or LiDAR to predict pixel-wise fine-grained traversability scores
+                </figcaption>
+              </figure>
+            </div>
           </div>
         </div>
-      
+
+        
         </div>
         </div>
       </section>
+      
+
+      <section class="hero is-small is-light">
+        <div class="hero-body">
+          <div class="columns is-centered has-text-centered">
+            <div class="column">
+              <h2 class="title is-3">Self-Supervised Labels</h2>
+              <p></p>
+          </div>
+        </div>
+
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="content">
+                <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
+                  <source src="./data/self_supervised_labels.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero is-small is-light">
+        <div class="hero-body">
+          <div class="columns is-centered has-text-centered">
+            <div class="column">
+              <h2 class="title is-3">Results</h2>
+              <p></p>
+          </div>
+        </div>
+
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column">
+              <div class="columns">
+                <div class="column">
+                  <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
+                    <source src="./data/forest_result_video.mp4"
+                            type="video/mp4">
+                  </video>
+                </div>
+
+                <div class="column">
+
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="column">
+            <figure class="image">
+              <img src="data/alter_cont_seg_0314_2.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
+              <figcaption>
+                Camera Dropout Experiment: Without model selection, the
+                system predicts erroneously using the visual model during dropout.
+                In contrast, ALTER automatically uses LiDAR during camera dropout
+                and quickly recovers when the sensor is back.
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="hero is-small is-light">
+        <div class="hero-body">
+          <div class="columns is-centered has-text-centered">
+            <div class="column">
+              <h2 class="title is-3">Besides increasing perception range, ALTER also improves robustness</h2>
+            </div>
+          </div>
+        </div>
+        <div class="column">
+          <figure class="image">
+            <img src="data/alter_dropout_0315.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
+            <figcaption>
+              Qualitative Comparison to Hand-labels after 45s of Adaptation: ALTER enables more accurate differentiation of the classes at
+              long-range. Compared to non-adaptive methods, our adaptive method provides more robust predictions when deployed in a new environment.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+
       
       <script type="text/javascript">
         $(function() {
@@ -264,12 +435,6 @@
                   primaryClass={cs.RO},
                   url={https://arxiv.org/abs/2306.15226}, 
             }
-            <!-- @article{kapoor24demonstrating,
-              title={Demonstrating ViSafe: Vision-enabled Safety for High-speed Detect and Avoid},
-              author={Kapoor, Parv and Higgins, Ian and Keetha, Nikhil and Patrikar, Jay and Ye, Zelin and He, Yao and Cisneros, Ivan and Hu, Yaoyu and Liu, Changliu and Kang, Eunsuk and Scherer, Sebastian},
-              journal={arXiv preprint},
-              year={2024}
-            } -->
           </code></pre>
         </div>
       </section>

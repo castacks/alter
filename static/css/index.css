@@ -172,3 +172,17 @@ body {
   margin-top: 25px ;
   /* margin-bottom: 100px; */
 }
+
+.list-no-bullets {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pro {
+  color: green;
+}
+
+.con {
+  color: red;
+}
