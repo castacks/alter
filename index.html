@@ -142,32 +142,22 @@
         </div>
       </section>
       
-      <section class="hero teaser">
-        <div class="container is-max-desktop">
+      <section class="hero">
           <div class="hero-body">
             <h2 class="subtitle has-text-centered">
-              <span>Offroad driving depends on roboust long range perception. </span>
+              <span>Offroad driving depends on robust long range perception. </span>
             </h2>
               <div class="container is-max-desktop">
-              <div class="columns is-centered">
-            
-              <div class="column has-text-centered">
-                <div class="content">
-                  <img src="data/Intro_video.gif" alt="My GIF" />
-
-                  <!-- <video id="s1_recon" autoplay controls muted loop playsinline height="100%">
-                    <source src="./data/splash.mp4"
-                            type="video/mp4">
-                  </video> -->
+                <div class="columns is-centered large-content">
+                  <figure class="image large-content">
+                    <img src="data/Intro_video.gif" alt="My GIF">
+                  </figure
                 </div>
               </div>
-              </div>
-              </div>
-            <h2 class="subtitle has-text-centered">
-              <span>We present ALTER, an adaptive self-supervised framework designed for long range perception.</span>
-            </h2>
+              <h2 class="subtitle has-text-centered">
+                <span>We present ALTER, an adaptive self-supervised framework designed for long range perception.</span>
+              </h2>
           </div>
-        </div>
       </section>
       
       <section class="hero is-small is-light">
@@ -241,7 +231,8 @@
               but they are not enough on their own.
             </h2>
             <!-- put two images side by side Each image also has their individual subtitles -->
-            <div class="columns">
+          <div class="container is-max-desktop">  
+            <div class="columns large-content">
               <div class="column">
                   <figure class="image">
                       <img src="data/lidar_sensor.png" alt="LiDAR sensor image shows sparse data at far range">
@@ -263,7 +254,7 @@
                   </figure>
               </div>
           </div>
-          
+        </div>
           </div>
         </div>
         </div>
@@ -280,7 +271,7 @@
         </div>
 
         <div class="container is-max-desktop">
-          <div class="content">
+          <div class="large-content">
             <figure class="image">
               <img src="data/combine_lidar_and_camera.png" alt="LiDAR sensor image shows sparse data at far range">
               <figcaption>Each training example consists of an image taken at time t and the accumulated LiDAR-based traversability labels at time t+n.</figcaption>
@@ -314,7 +305,7 @@
           <h2 class="title is-4 is-centered has-text-centered">AlTER uses this online labeled data to train a new visual model every 10 seconds,
             ready for inference in as little as 15 seconds after data collection.</h2>
           
-            <div class="content">
+            <div class="large-content">
               <figure class="image">
                 <img src="data/alter_approach_0314.png" alt="Alter approach figure">
                 <!-- Our adaptive approach estimates traversability from images using models trained online with new LiDAR data.  -->
@@ -346,7 +337,7 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column">
-              <div class="content">
+              <div class="large-content">
                 <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
                   <source src="./data/self_supervised_labels (2).mp4"
                           type="video/mp4">
@@ -366,6 +357,7 @@
           </div>
         </div>
         <div class="container is-max-desktop">
+          <div class="large-content">
             <figure class="image">
               <img src="data/alter_cont_seg_0314_2.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
               <figcaption>
@@ -373,6 +365,8 @@
 long-range. Compared to non-adaptive methods, our adaptive method provides more robust predictions when deployed in a new environment.
               </figcaption>
             </figure>
+          </div>
+            
             <div class="hero-body">
               <div class="columns is-centered has-text-centered">
                 <div class="column">
@@ -380,12 +374,11 @@ long-range. Compared to non-adaptive methods, our adaptive method provides more 
                 </div>
               </div>
             </div>
-            <div class="content" style="max-width: 50%; margin: 0 auto; display: flex; justify-content: center; margin-top: 14px;">
+            <div class="large-content" >
               <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
                   <source src="./data/forest_result_video.mp4" type="video/mp4">
               </video>
           </div>
-          
         </div>
       </section>
 
@@ -397,13 +390,15 @@ long-range. Compared to non-adaptive methods, our adaptive method provides more 
             </div>
           </div>
         </div>
-        <div class="column">
-          <figure class="image">
-            <img src="data/alter_dropout_0315.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
-            <figcaption>
-             ALTER uses its model selection process to detect view drops and safely degrades to a secondary sensor (LiDAR).
-            </figcaption>
-          </figure>
+        <div class="container is-max-desktop">
+          <div class="large-content">
+            <figure class="image">
+              <img src="data/alter_dropout_0315.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
+              <figcaption>
+               ALTER uses its model selection process to detect view drops and safely degrades to a secondary sensor (LiDAR).
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
