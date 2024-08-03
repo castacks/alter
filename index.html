@@ -149,12 +149,18 @@
               <span>Offroad driving depends on robust long range perception. </span>
             </h2>
               <div class="container is-max-desktop">
-                <div class="columns is-centered large-content">
+                
                   <figure class="image large-content">
-                    <img src="data/Intro_video.gif" alt="My GIF">
-                  </figure
+                    <img src="data/Intro_video.gif" alt="Alter rapidly improves traversability estimation in 45 seconds.">
+                  </figure>
+
+                <div class="color-bar-wrapper is-centered">
+                  <p class="color-bar-left-label">Safe</p>
+                  <img src="data/colorbar.png" alt="Darker colors are more traversable">
+                  <p class="color-bar-right-label">Dangerous</p>
                 </div>
               </div>
+
               <h2 class="subtitle has-text-centered">
                 <span>We present ALTER, an adaptive self-supervised framework designed for long range perception.</span>
               </h2>
@@ -350,12 +356,29 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column">
-              <div class="large-content">
+
+              <div class="content large-content">
                 <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
                   <source src="./data/self_supervised_labels (2).mp4"
                           type="video/mp4">
                 </video>
               </div>
+
+              <div class="classes-legend">
+                <div class="classes-legend-element">
+                  <div class="square-box low-cost-color" ></div>
+                  <p>Low Cost</p>
+                </div>
+                <div class="classes-legend-element">
+                  <div class="square-box med-cost-color" ></div>
+                  <p>Medium Cost</p>
+                </div>
+                <div class="classes-legend-element">
+                  <div class="square-box high-cost-color" ></div>
+                  <p>High Cost</p>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -372,12 +395,29 @@
         </div>
         <div class="container is-max-desktop">
           <div class="large-content">
+            
             <figure class="image">
-              <img src="data/alter_cont_seg_0314_2.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
+              <img src="data/alter_cont_seg_0314_2_no_legend.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
+              <div class="classes-legend">
+                <div class="classes-legend-element">
+                  <div class="square-box low-cost-color-colorblind" ></div>
+                  <p>Low Cost</p>
+                </div>
+                <div class="classes-legend-element">
+                  <div class="square-box med-cost-color-colorblind" ></div>
+                  <p>Medium Cost</p>
+                </div>
+                <div class="classes-legend-element">
+                  <div class="square-box high-cost-color-colorblind" ></div>
+                  <p>High Cost</p>
+                </div>
+              </div>
+
               <figcaption>
                 <b>Qualitative Comparison to Hand-labels after 45s of Adaptation:</b> ALTER enables more accurate differentiation of the classes at
 long-range. Compared to non-adaptive methods, our adaptive method provides more robust predictions when deployed in a new environment.
               </figcaption>
+              
             </figure>
           </div>
             
