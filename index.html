@@ -66,8 +66,8 @@
         </div>
       </nav>
       
-      
-      <section class="hero">
+      <!-- Title and Authorship Section -->
+      <section class="hero is-small">
         <div class="hero-body">
           <div class="container is-max-desktop">
             <div class="columns is-centered">
@@ -142,7 +142,8 @@
         </div>
       </section>
       
-      <section class="hero">
+      <!-- Pull Figure Section -->
+      <section class="hero is-small is-light">
           <div class="hero-body">
             <h2 class="subtitle has-text-centered">
               <span>Offroad driving depends on robust long range perception. </span>
@@ -160,7 +161,8 @@
           </div>
       </section>
       
-      <section class="hero is-small is-light">
+      <!-- Abstract Section -->
+      <section class="hero is-small">
         <div class="hero-body">
         <div class="container is-max-desktop">
           <!-- Abstract. -->
@@ -210,7 +212,8 @@
           <!--/ Paper video. -->
       </section>
       
-      <section class="hero">
+      <!-- YouTube Video Section -->
+      <section class="hero is-small is-light">
         <div class="hero-body">
         <div class="columns is-centered has-text-centered">
           <div class="column is-three-fifths">
@@ -223,7 +226,8 @@
         </div>
       </section>
 
-      <section class="hero is-small is-light">
+      <!-- Motivation: Sensor Section -->
+      <section class="hero is-small">
         <div class="hero-body">
         <div class="columns is-centered">
           <div class="column">
@@ -261,7 +265,7 @@
         </div>
       </section>
 
-      
+      <!-- Methods: Combine Data Section -->
       <section class="hero is-small is-light">
         <div class="hero-body">
         <div class="columns is-centered has-text-centered">
@@ -301,10 +305,19 @@
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <h2 class="title is-4 is-centered has-text-centered">AlTER uses this online labeled data to train a new visual model every 10 seconds,
-            ready for inference in as little as 15 seconds after data collection.</h2>
-          
+      <!-- Methods: Overview Figure Section -->
+      <section class="hero is-small">
+        <div class="hero-body">
+        <div class="columns is-centered has-text-centered">
+          <div class="column">
+            <h2 class="title is-4 is-centered has-text-centered">AlTER uses this online labeled data to train a new visual model every 10 seconds,
+              ready for inference in as little as 15 seconds after data collection.</h2>
+          </div>
+        </div>
+          <div class="container is-max-desktop">
             <div class="large-content">
               <figure class="image">
                 <img src="data/alter_approach_0314.png" alt="Alter approach figure">
@@ -323,8 +336,8 @@
             </div>
         </div>
       </section>
-      
 
+      <!-- Results: Self-Supervised Labels Section-->
       <section class="hero is-small is-light">
         <div class="hero-body">
           <div class="columns is-centered has-text-centered">
@@ -348,7 +361,8 @@
         </div>
       </section>
 
-      <section class="hero is-small is-light">
+      <!-- Results: Visual Model Performance Section -->
+      <section class="hero is-small">
         <div class="hero-body">
           <div class="columns is-centered has-text-centered">
             <div class="column">
@@ -382,6 +396,7 @@ long-range. Compared to non-adaptive methods, our adaptive method provides more 
         </div>
       </section>
 
+      <!-- Results: Drop Out Section -->
       <section class="hero is-small is-light">
         <div class="hero-body">
           <div class="columns is-centered has-text-centered">
@@ -401,24 +416,8 @@ long-range. Compared to non-adaptive methods, our adaptive method provides more 
           </div>
         </div>
       </section>
-
-
       
-      <script type="text/javascript">
-        $(function() {
-        var screenWidth = $(window).width();
-        if (screenWidth >= 800) {
-          $('#gpt-video-1').attr('autoplay', 'autoplay');
-        }
-        if (screenWidth >= 800) {
-          $('#gpt-video-2').attr('autoplay', 'autoplay');
-        }
-        if (screenWidth >= 800) {
-          $('#click-query-icl').attr('autoplay', 'autoplay');
-        }
-      });
-      </script>
-      
+      <!-- BibTeX -->
       <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
           <h2 class="title is-3">BibTeX</h2>
@@ -435,6 +434,21 @@ long-range. Compared to non-adaptive methods, our adaptive method provides more 
           </code></pre>
         </div>
       </section>
+
+      <!-- <script type="text/javascript">
+        $(function() {
+          var screenWidth = $(window).width();
+          if (screenWidth >= 800) {
+            $('#gpt-video-1').attr('autoplay', 'autoplay');
+          }
+          if (screenWidth >= 800) {
+            $('#gpt-video-2').attr('autoplay', 'autoplay');
+          }
+          if (screenWidth >= 800) {
+            $('#click-query-icl').attr('autoplay', 'autoplay');
+          }
+        });
+      </script> -->
       
       
       <style>
