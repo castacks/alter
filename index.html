@@ -232,46 +232,38 @@
         </div>
       </section>
 
-      <!-- Motivation: Sensor Section -->
+      <!-- Methods: Overview Figure Section -->
       <section class="hero is-small">
         <div class="hero-body">
-        <div class="columns is-centered">
+        <div class="columns is-centered has-text-centered">
           <div class="column">
-            <h2 class="title is-4 has-text-centered">LiDAR and Cameras are invaluable sensors for perception,
-              but they are not enough on their own.
-            </h2>
-            <!-- put two images side by side Each image also has their individual subtitles -->
-          <div class="container is-max-desktop">  
-            <div class="columns large-content">
-              <div class="column">
-                  <figure class="image">
-                      <img src="data/lidar_sensor.png" alt="LiDAR sensor image shows sparse data at far range">
-                      <figcaption class="title is-5 has-text-centered">LiDAR-based Sensing</figcaption>
-                    <ul class="list-no-bullets">
-                      <li class="pro">+ Robust to appearance changes</li>
-                      <li class="con">- Sparse measurement at far-range</li>
-                    </ul>
-                  </figure>
-              </div>
-              <div class="column">
-                  <figure class="image">
-                      <img src="data/camera-sensor.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
-                      <figcaption class="title is-5 has-text-centered">Camera-based</figcaption>
-                      <ul class="list-no-bullets">
-                        <li class="pro">+ Dense measurement at far-range</li>
-                        <li class="con">- Fail when out of distribution</li>
-                      </ul>
-                  </figure>
-              </div>
+            <h2 class="title is-4 is-centered has-text-centered">AlTER uses this online labeled data to train a new visual model every 10 seconds,
+              ready for inference in as little as 15 seconds after data collection.</h2>
           </div>
         </div>
-          </div>
-        </div>
-        </div>
+          <div class="container is-max-desktop">
+            <div class="large-content">
+              <figure class="image">
+                <img src="data/alter_approach_0314.png" alt="Alter approach figure">
+                <!-- Our adaptive approach estimates traversability from images using models trained online with new LiDAR data.  -->
+                <figcaption>
+                  Online Labeling: We accumulate LiDAR features to label their costs in 3D. These labels are projected onto the image plane to form
+                  training labels.
+                </figcaption>
+                <figcaption>
+                  Online Learning: ALTER picks the most similar model or makes a new model for training to adapt to new appearances.
+                </figcaption>
+                <figcaption>
+                  Online Inference: We pick the best inference model given image similarity or LiDAR to predict pixel-wise fine-grained traversability scores
+                </figcaption>
+              </figure>
+            </div>
         </div>
       </section>
 
       <!-- Methods: Combine Data Section -->
+       <!--
+
       <section class="hero is-small is-light">
         <div class="hero-body">
         <div class="columns is-centered has-text-centered">
@@ -313,35 +305,8 @@
           </div>
         </div>
       </section>
+    -->
 
-      <!-- Methods: Overview Figure Section -->
-      <section class="hero is-small">
-        <div class="hero-body">
-        <div class="columns is-centered has-text-centered">
-          <div class="column">
-            <h2 class="title is-4 is-centered has-text-centered">AlTER uses this online labeled data to train a new visual model every 10 seconds,
-              ready for inference in as little as 15 seconds after data collection.</h2>
-          </div>
-        </div>
-          <div class="container is-max-desktop">
-            <div class="large-content">
-              <figure class="image">
-                <img src="data/alter_approach_0314.png" alt="Alter approach figure">
-                <!-- Our adaptive approach estimates traversability from images using models trained online with new LiDAR data.  -->
-                <figcaption>
-                  Online Labeling: We accumulate LiDAR features to label their costs in 3D. These labels are projected onto the image plane to form
-                  training labels.
-                </figcaption>
-                <figcaption>
-                  Online Learning: ALTER picks the most similar model or makes a new model for training to adapt to new appearances.
-                </figcaption>
-                <figcaption>
-                  Online Inference: We pick the best inference model given image similarity or LiDAR to predict pixel-wise fine-grained traversability scores
-                </figcaption>
-              </figure>
-            </div>
-        </div>
-      </section>
 
       <!-- Results: Self-Supervised Labels Section-->
       <section class="hero is-small is-light">
@@ -356,10 +321,20 @@
         <div class="container is-max-desktop">
           <div class="columns is-centered">
             <div class="column">
+              <div class="content">
+                <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
+                  <source src="./data/accumulate_lidar_cropped.mp4"
+                          type="video/mp4">
+                </video>
+                <figcaption>Accumulation increases the density and range of point clouds.</figcaption>
+              </div>
+            </div>
+
+            <div class="column">
 
               <div class="content large-content">
                 <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
-                  <source src="./data/self_supervised_labels (2).mp4"
+                  <source src="./data/super_supervised_labels_vertical.mp4"
                           type="video/mp4">
                 </video>
               </div>
@@ -390,53 +365,56 @@
           <div class="columns is-centered has-text-centered">
             <div class="column">
               <h2 class="title is-4">Results: Visual Model Performance</h2>
-              <p></p>
-          </div>
-        </div>
-        <div class="container is-max-desktop">
-          <div class="large-content">
-            
-            <figure class="image">
-              <img src="data/alter_cont_seg_0314_2_no_legend.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
-              <div class="classes-legend">
-                <div class="classes-legend-element">
-                  <div class="square-box low-cost-color-colorblind" ></div>
-                  <p>Low Cost</p>
-                </div>
-                <div class="classes-legend-element">
-                  <div class="square-box med-cost-color-colorblind" ></div>
-                  <p>Medium Cost</p>
-                </div>
-                <div class="classes-legend-element">
-                  <div class="square-box high-cost-color-colorblind" ></div>
-                  <p>High Cost</p>
-                </div>
-              </div>
-
-              <figcaption>
-                <b>Qualitative Comparison to Hand-labels after 45s of Adaptation:</b> ALTER enables more accurate differentiation of the classes at
-long-range. Compared to non-adaptive methods, our adaptive method provides more robust predictions when deployed in a new environment.
-              </figcaption>
               
-            </figure>
-          </div>
-            
-            <div class="hero-body">
-              <div class="columns is-centered has-text-centered">
-                <div class="column">
+              <div class="container is-max-desktop">
+
+                <!-- video -->
+                <div class="is-centered has-text-centered">
                   <h2 class="title is-6">ALTER's performance in an unseen offroad sequence.</h2>
+                </div>
+                <div class="large-content" >
+                  <video autoplay controls muted loop playsinline height="100%">
+                    <source src="./data/forest_result_video_horizontal.mp4" type="video/mp4">
+                  </video>
+                </div>
+                <div class="color-bar-wrapper is-centered">
+                  <p class="color-bar-left-label">Safe</p>
+                  <img src="data/colorbar.png" alt="Darker colors are more traversable">
+                  <p class="color-bar-right-label">Dangerous</p>
+                </div>
+
+                <!-- pic -->
+                <div class="large-content">
+                  <figure class="image">
+                    <img src="data/alter_cont_seg_0314_2_no_legend.png" alt="Vision models provide labels for every pixel of the terrain but is incorrect on certain regions">
+                    <div class="classes-legend">
+                      <div class="classes-legend-element">
+                        <div class="square-box low-cost-color-colorblind" ></div>
+                        <p>Low Cost</p>
+                      </div>
+                      <div class="classes-legend-element">
+                        <div class="square-box med-cost-color-colorblind" ></div>
+                        <p>Medium Cost</p>
+                      </div>
+                      <div class="classes-legend-element">
+                        <div class="square-box high-cost-color-colorblind" ></div>
+                        <p>High Cost</p>
+                      </div>
+                    </div>
+                    <figcaption>
+                      <b>Qualitative Comparison to Hand-labels after 45s of Adaptation:</b> ALTER enables more accurate differentiation of the classes at
+      long-range. Compared to non-adaptive methods, our adaptive method provides more robust predictions when deployed in a new environment.
+                    </figcaption>  
+                  </figure>
                 </div>
               </div>
             </div>
-            <div class="large-content" >
-              <video id="s2_recon" autoplay controls muted loop playsinline height="100%">
-                  <source src="./data/forest_result_video.mp4" type="video/mp4">
-              </video>
           </div>
         </div>
       </section>
 
       <!-- Results: Drop Out Section -->
+       <!--
       <section class="hero is-small is-light">
         <div class="hero-body">
           <div class="columns is-centered has-text-centered">
@@ -456,7 +434,8 @@ long-range. Compared to non-adaptive methods, our adaptive method provides more 
           </div>
         </div>
       </section>
-      
+            -->
+
       <!-- BibTeX -->
       <section class="section" id="BibTeX">
         <div class="container is-max-desktop content">
